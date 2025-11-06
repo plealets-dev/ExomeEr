@@ -1,0 +1,32 @@
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+OPENAI_API_KEY= os.environ.get("OPENAI_API_KEY", "")
+OPENAI_MODELForSpeakerDiarization= os.environ.get("OPENAI_MODELForSpeakerDiarization", "gpt-4o-mini-2024-07-18")
+OPENAI_MODELForDictation = os.environ.get("OPENAI_MODELForDictation", "gpt-4o-mini-2024-07-18")
+OPENAI_MODELForDiagnosis = os.environ.get("OPENAI_MODELForDiagnosis", "gpt-4o-mini-2024-07-18")
+OPENAI_MODELForICD = os.environ.get("OPENAI_MODELForICD","gpt-4o-mini-2024-07-18")
+OPENAI_MODELForExtraction = os.environ.get("OPENAI_MODELForExtraction","gpt-4o-mini-2024-07-18")
+OPENAI_MODELForMDMprediction =os.environ.get("OPENAI_MODELForMDMprediction","gpt-4o-mini-2024-07-18")
+OPENAI_MODELForTestAnalysis =os.environ.get("OPENAI_MODELForTestAnalysis","gpt-4o-mini-2024-07-18")
+CASESHEETMODEL = os.environ.get("CASESHEETMODEL", "gpt-4o-mini-2024-07-18") 
+FileStorageConnectionString = os.environ.get("FileStorageConnectionString", "")
+ContainerName =  os.environ.get("ContainerName", "")
+FileshareName =  os.environ.get("FileshareName", "")
+AUDIO_DIRECTORY = os.environ.get("AUDIO_DIRECTORY", "") 
+MongoConnectionString = os.environ.get("MongoConnectionString", "")
+DbName = os.environ.get("DbName", "")
+TranscriptionCollection = os.environ.get("TranscriptionCollection", "")
+WhatsappBaseUrl = os.environ.get("base_url", "")
+bluejaydoc_url = os.environ.get("bluejaydoc_url", "")
+bluejay_api_key = os.environ.get("bluejay_api_key", "")
+RADIOLOGYMODEL = os.environ.get("RADIOLOGYMODEL","o1-2024-12-17")
+ACCESSKEY = os.environ.get('AWS_ACCESS_KEY_ID',"")
+SECRETKEY = os.environ.get('AWS_ACCESS_KEY_ID',"")
+REGION = os.environ.get('AWS_ACCESS_KEY_ID',"")
+GENAI_API_KEY = os.environ.get("GENAI_API_KEY")    
+azure_endpoint = os.environ.get('azure_endpoint',"")
+formrecognizer_key = os.environ.get('formrecognizer_key',"")

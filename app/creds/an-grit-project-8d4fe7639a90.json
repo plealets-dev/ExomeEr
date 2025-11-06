@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "an-grit-project",
+  "private_key_id": "8d4fe7639a906f649098a1a9e53ae641e9a0448e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCofRiAhQC/XMtW\nKrKm98ssw799Vwb9bdfo1ILtRmS1QzQMBu50aai9+IyGIOyLMRm5CoV3Vcg1z2ej\nz2hgpDA+bGacX+0xQT3wazyMD6BNeylmScU5XgvrmJKN8/bP812BdCJw8teHOe5/\nOO5STe9ze88+BHzrFdGbLWdMH2sfAHTAz5OlmqFTP8LJtfXS29etePsghFEwfPMn\nwroaAyeSzlk/8h+B1PFoJIKNg2E4FJUVvPM/fnZsNojuqeivwrEhzW1v1d4ypfkc\ny9Dsle7rUkkLaAE8lMVG1NK4AI8IcM+m0hUG/E/FoUtI0RK5NzLTiO9VcmBIPFEi\n1qI453+lAgMBAAECggEAGypUNYB8Pt5QwHtQ45/HJ9gFu0k5TMoViiodU/FKEnmb\n3iaN8sIIXVzCF2weh1Cq041ROIzho19l1+D8dLx0NNRYdPT4cr0Qpf88O17XmzZ0\n1dOmE1pI9LrcQjvn+t5DoLgfR3O38UsTW3rL3gRHy6hWISsrEuIpMepPodPc+xnd\n/Bo9FbbUAcyRB5LeoTbBlvP/88WzoPzjCQQVtwtaHpCoMsPNltWzWbBc3UGIe7/N\nyfxDqGzcDoNQqC5yvlXaSoCZzxEtv4kyfdpZaLCdjjqcdza6TDDWk62uPNOFCRlu\nyzB174oAR991pxb0O8azOGe/wyWOTho2tMNxLE9lcQKBgQDjGSaKKMfea81HPoSI\nCOOK4AQxeNGxmjZsYo2z/xlwkQPBC8ZMxgXiRQLp1xOgjx3XiC1Ms3LbbEgmgHwy\nbFoetXB7oZsTf5HYW6DsCzCS5lQtxR3HKbE4uDw0mV8cvVm6CcOAU0N3MmwZjqEB\nwDMxfpW5iBlryFk6x7M+qJ3aqQKBgQC97nKa/K+jYYo6ze4hzB3n5urKRCra1K9o\nIxLenHSxKHbCz0zGsHBo7VQxxF6tsfUXkDNdUJcxVaOdQT8AB3q6OHI1cdm3dSqi\nd6pGpk3wB3WzcI/w9QZxOlzsUFPAjrKjxw+xOt1ZXxzhniqCp5zhgaaJw93nm0/o\n6vkvpmr2nQKBgQC0m/b7n+085i1PANh0O+WDOB/9nGHgxo2L62FZCoOX86yxpgSi\nYEajqlDj2mpAojGQjTvBqWGqQlarUDn1/Bg8Hf6ERIVJn4ZFNLIpp8iMu+Ostvy0\nvWK1gkhXaLas66Zlf4hdEVsxfAde2AESnGHadhrrf+L/xkm4psPWDFHmaQKBgFko\nEYxHiXs8UlMAUAR1eKRfdV+1WBiZNi3AKR9ueiifQgB4pyWttVbL8XXbJEaM/uws\nuK/ZIN/7v24WLqio2ieIT7Re2UCRM45Idhnr/zHpjorJEAigPIHyT6RuoKIHWjwf\nOXKMm1NUno4aXQIwBCinX7HTy9rowT4o7wg7KoLRAoGBAIwzo2fAaPIx8BzcRSov\nGPh1a2bYzoLX0Xoldo5jqfYhlTPopGiXP1GBrikk8nec+2C33+k426jSZUGps7Gr\ni5Y0h6XXpldQD3CwGs/oN+bX5PBy1ZQEpsEIpefBeEcc34v/fjWborqKIypBpG/A\nfNih/o5inRXU7CmtnhZQ3TN/\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloud-speech@an-grit-project.iam.gserviceaccount.com",
+  "client_id": "110156518210411200661",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloud-speech%40an-grit-project.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

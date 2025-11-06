@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Audio Transcription</title>
+</head>
+<body>
+    <h1>Audio Transcription with WebSocket</h1>
+
+    <div>
+        <button id="startBtn">Start Transcription</button>
+        <button id="stopBtn" disabled>Stop Transcription</button>
+    </div>
+
+    <h3>Transcription Result:</h3>
+    <div id="result"></div>
+
+    <audio id="audioPlayback" controls style="display:none;"></audio>
+
+    <script>
+        let websocket;
+        let mediaRecorder;
+        let audioChunks = [];  // Store audio chunks
+        let audioBlob;  // To hold the final audio Blob
+        let isRecording = false;  // State flag to manage recording
+
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const resultDiv = document.getElementById('result');
+        const audioPlayback = document.getElementById('audioPlayback');
+
+        // Function to start recording and sending audio
+        startBtn.addEventListener('click', async () => {
+            // Create the WebSocket connection
+            websocket = new WebSocket("ws://qagenai.exomemed.com//ws/audio");
+
+            websocket.onopen = function() {
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                isRecording = true; // Update the state flag
+
+                // Start capturing audio using Web Audio API
+                navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+
+                    mediaRecorder.ondataavailable = function(event) {
+                        if (event.data.size > 0) {
+                            audioChunks.push(event.data); // Collect audio chunks
+                        }
+                    };
+
+                    mediaRecorder.onstop = function() {
+                        audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                        const audioUrl = URL.createObjectURL(audioBlob);
+                        audioPlayback.src = audioUrl;  // Set audio source for playback
+                        audioPlayback.style.display = 'block';  // Show audio controls
+                        audioChunks = [];  // Clear the chunks for the next recording
+                    };
+
+                    mediaRecorder.start(500);  // Send data every 500ms
+                }).catch(err => {
+                    console.error("Error accessing microphone: ", err);
+                    alert("Could not access microphone. Please check your permissions.");
+                });
+            };
+
+            websocket.onmessage = function(event) {
+                // Append received transcription result to the resultDiv
+                if (event.data) {
+                    resultDiv.innerHTML += `<p>${event.data}</p>`;
+                } else {
+                    console.error("Received empty message from server.");
+                }
+            };
+
+            websocket.onerror = function(error) {
+                console.error("WebSocket error: ", error);
+                alert("WebSocket connection error. Please check the server.");
+            };
+
+            websocket.onclose = function() {
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+                isRecording = false; // Update the state flag
+                console.log("WebSocket connection closed.");
+            };
+        });
+
+        // Function to stop recording and close the WebSocket connection
+        stopBtn.addEventListener('click', () => {
+            mediaRecorder.stop(); // Stop recording
+            // Send the audio Blob only if WebSocket is open
+            if (websocket.readyState === WebSocket.OPEN) {
+                websocket.send(audioBlob); // Send the final audio Blob to the server
+                websocket.send('stop'); // Send stop signal to the server
+            }
+
+            // Close the WebSocket after a short delay to allow the server to process
+            setTimeout(() => {
+                if (websocket.readyState === WebSocket.OPEN) {
+                    websocket.close(); // Close the WebSocket connection only if it's open
+                }
+            }, 100); // Adjust the delay as needed
+
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        });
+    </script>
+</body>
+</html>
